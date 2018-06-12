@@ -6,11 +6,10 @@ import Logger from 'winston';
 import WorkClient from './WorkClient';
 
 //Instantiated
-const workClients = {};
 
 const Dispatcher = class Dispatcher {
 	constructor() {
-
+		this._workClients = {};
 	}
 
 	////////////////////
@@ -23,7 +22,7 @@ const Dispatcher = class Dispatcher {
 		
 		const clientId = uniqid();
 		const client = new WorkClient(clientId, workerSocket);
-		workClients[clientId] = client;
+		_this._workClients[clientId] = client;
 
 		workerSocket.on(`disconnect`, _this.handleClientDisconnect.bind(_this, clientId));
 	}
@@ -33,8 +32,11 @@ const Dispatcher = class Dispatcher {
 	////////////////////
 
 	handleClientDisconnect(clientId) {
+		// preserve context
+		const _this = this;
+		
 		Logger.info(`Client disconnected`);
-		delete workClients[clientId];
+		delete _this._workClients[clientId];
 	}
 };
 
