@@ -1,0 +1,35 @@
+{
+	"name": "node-cuda-work-server",
+	"version": "0.0.1",
+	"description": "A configurable server that issues work tasks to connected clients with NVIDIA CUDA processing units.",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js",
+		"build": "babel src -d dist -q",
+		"watch": "babel src -d dist -w",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "tsmith",
+	"license": "ISC",
+	"dependencies": {
+		"bluebird": "^3.5.1",
+		"config": "^1.30.0",
+		"express": "^4.16.3",
+		"fs-extra": "^6.0.1",
+		"lodash": "^4.17.10",
+		"lowdb": "^1.0.0",
+		"moment": "^2.22.2",
+		"socket.io": "^2.1.1",
+		"uniqid": "^5.0.3",
+		"winston": "^2.4.2"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.26.0",
+		"babel-eslint": "^8.2.3",
+		"babel-preset-env": "^1.7.0",
+		"eslint": "^4.19.1",
+		"eslint-config-walmart": "^2.2.1",
+		"eslint-plugin-filenames": "^1.2.0",
+		"eslint-plugin-import": "^2.12.0"
+	}
+}

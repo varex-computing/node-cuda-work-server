@@ -1,0 +1,14 @@
+{
+	"logging": {
+		"filename": ""
+	},
+	"network": {
+		"ports": {
+			"http": 8080,
+			"https": null
+		}
+	},
+	"plugins": [
+		
+	]
+}
