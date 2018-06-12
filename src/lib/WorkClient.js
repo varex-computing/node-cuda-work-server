@@ -10,6 +10,8 @@ const WorkClient = class WorkClient {
 		this._id = id;
 		this._socket = socket;
 
+		this._devices = [];
+
 		this._setSocketHandlers();
 
 		this._requestDeviceInfo();
@@ -18,8 +20,6 @@ const WorkClient = class WorkClient {
 	////////////////////////
 	// GETTERS AND SETTERS//
 	////////////////////////
-
-
 
 	////////////////////
 	// PRIVATE METHODS//
@@ -46,8 +46,12 @@ const WorkClient = class WorkClient {
 	////////////////////
 
 	handleDeviceInfo(devices) {
-		Logger.info(`Got device info from client:`);
+		// preserve context
+		const _this = this;
+		
+		Logger.info(`Got device info from client`);
 		Logger.info(devices);
+		_this._devices = devices;
 	}
 };
 
